@@ -1,0 +1,44 @@
+{
+  "name": "react-form-editor",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "eslint ./",
+    "precommit": "npm test",
+    "commitmsg": "commitlint -e"
+  },
+  "dependencies": {
+    "file-saver": "^1.3.3",
+    "lodash": "^4.17.4",
+    "next": "^3.0.3",
+    "prop-types": "latest",
+    "react": "15.6.1",
+    "react-bootstrap": "^0.31.2",
+    "react-dom": "^15.6.1",
+    "react-fontawesome": "^1.6.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.1.2",
+    "react-select": "^1.0.0-rc.5",
+    "react-select-multiple": "0.0.5",
+    "redux": "^3.7.2",
+    "redux-form": "^7.0.3",
+    "redux-promise": "^0.5.3",
+    "styled-components": "^2.1.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^3.1.3",
+    "babel-eslint": "^7.2.3",
+    "eslint": "3",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-lodash": "^2.4.5",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "husky": "^0.14.3"
+  },
+  "license": "MIT"
+}
