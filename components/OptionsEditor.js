@@ -5,7 +5,7 @@ import FontAwesome from 'react-fontawesome';
 
 import OptionEditor from './OptionEditor';
 
-const OptionsEditor = ({fields, fromQuestion}) => (
+const OptionsEditor = ({fields}) => (
     <div>
         <Row>
             <Col sm={12}>
@@ -25,10 +25,8 @@ const OptionsEditor = ({fields, fromQuestion}) => (
                     <tbody>
                         {fields.map((option, index) => (
                             <OptionEditor
-                                fromQuestion={fromQuestion}
                                 key={option.order}
                                 option={option}
-                                index={index}
                                 onRemove={() => fields.remove(index)}
                             />
                     ))}
@@ -47,7 +45,7 @@ const OptionsEditor = ({fields, fromQuestion}) => (
 );
 
 OptionsEditor.propTypes = {
-    fields: PropTypes.arrayOf(PropTypes.shape({}))
+    fields: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
 export default OptionsEditor;

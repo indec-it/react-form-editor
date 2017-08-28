@@ -2,27 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Field} from 'redux-form';
 import {Button} from 'react-bootstrap';
-import {filter, keys} from 'lodash';
-
-import {Option} from '../model';
-
-import FieldInput from './FieldInput';
 import FontAwesome from 'react-fontawesome';
-import {max} from 'lodash';
+import FieldInput from './FieldInput';
 
 
-const OptionEditor = ({option, index, onRemove, fromQuestion}) => (
+const OptionEditor = ({option, onRemove}) => (
     <tr>
         <td>
             <Field
-                name={`${fromQuestion.order} - ${index} optionsValue`}
+                name={`${option}value`}
                 component={FieldInput}
                 inputType="number"
             />
         </td>
         <td>
             <Field
-                name={`${fromQuestion.order} - ${index} optionsLabel`}
+                name={`${option}label`}
                 component={FieldInput}
                 inputType="text"
             />
@@ -37,8 +32,8 @@ const OptionEditor = ({option, index, onRemove, fromQuestion}) => (
 );
 
 OptionEditor.propTypes = {
-    index: PropTypes.number.isRequired,
-    onRemove: PropTypes.func.isRequired
+    onRemove: PropTypes.func.isRequired,
+    option: PropTypes.shape({}).isRequired
 };
 
 export default OptionEditor;

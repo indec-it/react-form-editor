@@ -7,4 +7,4 @@ After clone this project you should install the npm packages and bower packages.
 
 To start the app run:
 
-    npm dev
+    npm run dev

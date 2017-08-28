@@ -6,46 +6,46 @@ import FontAwesome from 'react-fontawesome';
 
 import FieldInput from './FieldInput';
 
-const OptionYesNo = ({index, onRemove, fromQuestion}) => (
+const OptionYesNo = ({option, onRemove}) => (
     <tr>
         <td>
             <Field
-                name={`${fromQuestion.order} - ${index}optionsName`}
+                name={`${option}name`}
                 component={FieldInput}
                 inputType="number"
             />
         </td>
         <td>
             <Field
-                name={`${fromQuestion.order} - ${index}optionsText`}
+                name={`${option}text`}
                 component={FieldInput}
                 inputType="text"
             />
         </td>
         <td>
             <Field
-                name={`${fromQuestion.order} - ${index}optionsDkLabel`}
+                name={`${option}dkLabel`}
                 component={FieldInput}
                 inputType="text"
             />
         </td>
         <td>
             <Field
-                name={`${fromQuestion.order} - ${index}optionsDkValue`}
+                name={`${option}dkValue`}
                 component={FieldInput}
                 inputType="text"
             />
         </td>
         <td>
             <Field
-                name={`${fromQuestion.order} - ${index}optionsFalseValue`}
+                name={`${option}falseValue`}
                 component={FieldInput}
                 inputType="text"
             />
         </td>
         <td>
             <Field
-                name={`${fromQuestion.order} - ${index}optionsTrueValue`}
+                name={`${option}trueValue`}
                 component={FieldInput}
                 inputType="text"
             />
@@ -60,7 +60,7 @@ const OptionYesNo = ({index, onRemove, fromQuestion}) => (
 );
 
 OptionYesNo.propTypes = {
-    index: PropTypes.number.isRequired,
+    option: PropTypes.shape({}).isRequired,
     onRemove: PropTypes.func.isRequired
 };
 

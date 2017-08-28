@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {formValueSelector} from 'redux-form';
 import {Row, Col, Button, Table} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
-import {Question} from '../model';
 import OptionYesNo from './OptionYesNo';
-import {max} from 'lodash';
 
 
-const OptionsYesNo = ({fields, fromQuestion}) => (
+const OptionsYesNo = ({fields}) => (
     <div>
         <Row>
             <Col sm={12}>
@@ -34,13 +30,11 @@ const OptionsYesNo = ({fields, fromQuestion}) => (
                     <tbody>
                         {fields.map((option, index) => (
                             <OptionYesNo
-                                fromQuestion={fromQuestion}
                                 key={option.order}
                                 option={option}
-                                index={index}
                                 onRemove={() => fields.remove(index)}
                             />
-                    ))}
+                        ))}
                     </tbody>
                 </Table>
             </Col>
@@ -56,7 +50,7 @@ const OptionsYesNo = ({fields, fromQuestion}) => (
 );
 
 OptionsYesNo.propTypes = {
-    fields: PropTypes.arrayOf(PropTypes.shape({}))
+    fields: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
 export default OptionsYesNo;

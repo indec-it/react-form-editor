@@ -23,11 +23,16 @@ const FieldSelectMultiple = ({input, label, placeholder, options}) => (
     );
 
 FieldSelectMultiple.propTypes = {
-    componentClass: PropTypes.string
+    input: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    options: PropTypes.shape({}).isRequired
 };
 
+
 FieldSelectMultiple.defaultProps = {
-    componentClass: 'input'
+    placeholder: ''
 };
+
 
 export default FieldSelectMultiple;
