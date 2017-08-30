@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const types = {
     CHECKBOX: 'checkbox',
     DATE: 'date',
@@ -26,3 +25,10 @@ export const types = {
     YEAR: 'Year',
     YES_NO: 'YesNoQuestion'
 };
+
+export const operators = [
+    {value: 'gt', label: 'mayor que', valueRequired: true},
+    {value: 'lt', label: 'menor que', valueRequired: true},
+    {value: 'eq', label: 'igual a', valueRequired: true},
+    {value: 'exists', label: 'fue respondida'}
+];

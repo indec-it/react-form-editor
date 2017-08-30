@@ -4,10 +4,11 @@ import {connect} from 'react-redux';
 import {formValueSelector} from 'redux-form';
 import {Row, Col, Button} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import {max, defaultTo, flatMap} from 'lodash';
 
 import {Question} from '../model';
 import QuestionEditor from './QuestionEditor';
-import {max, defaultTo, flatMap} from 'lodash';
+
 
 const getNewQuestion = (questions, row) => new Question({
     order: defaultTo(max(questions.map(question => question.order)), 0) + 1,
@@ -47,9 +48,10 @@ const QuestionsEditor = ({fields, row, questions}) => (
     </div>
 );
 
-QuestionEditor.propTypes = {
-    questions: PropTypes.arrayOf(PropTypes.instanceOf(Question)),
-    fields: PropTypes.arrayOf(PropTypes.shape({}))
+QuestionsEditor.propTypes = {
+    questions: PropTypes.arrayOf(PropTypes.instanceOf(Question)).isRequired,
+    fields: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    row: PropTypes.shape({}).isRequired
 };
 
 export default connect(

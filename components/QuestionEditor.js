@@ -8,11 +8,11 @@ import {filter, keys} from 'lodash';
 import {Question} from '../model';
 import {types} from '../constants';
 import FieldInput from './FieldInput';
-import FieldSelectMultiple from './FieldSelectMultiple';
 import OptionsEditor from './OptionsEditor';
 import OptionsYesNo from './OptionsYesNo';
+import ParentsEditor from './ParentsEditor';
 
-const isOptionsRequired = question => {
+const isOptionsRequired = (field, question) => {
     switch (question.type) {
         case types.SELECT:
         case types.SELECT_SPECIAL_OPTIONS:
@@ -20,11 +20,13 @@ const isOptionsRequired = question => {
         case types.SELECT_DISABLED:
         case types.CHECKBOX:
         case types.RADIO:
-            return <FieldArray name={`${question.order}options`} fromQuestion={question} component={OptionsEditor}/>;
+            return (<FieldArray
+                name={`${field}options`}
+                component={OptionsEditor}
+            />);
         case types.YES_NO:
             return (<FieldArray
-                name={`${question.order}optionsYesNo`}
-                fromQuestion={question}
+                name={`${field}optionsYesNo`}
                 component={OptionsYesNo}
             />);
         default:
@@ -35,7 +37,7 @@ const isOptionsRequired = question => {
 
 const QuestionEditor = ({questions, question, row, index, onRemove}) => {
     const possibleParentQuestions = filter(
-        questions, (q, i) => q.rowOrder < row.order || q.rowOrder === row.order && q.order < row.questions[index].order
+        questions, q => q.rowOrder < row.order || (q.rowOrder === row.order && q.order < row.questions[index].order)
     );
     return (
         <Panel
@@ -79,26 +81,27 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
                     </Field>
                 </Col>
             </Row>
-            {isOptionsRequired(row.questions[index])}
-            <Row>
+            {isOptionsRequired(question, row.questions[index])}
+            {!!possibleParentQuestions.length && <Row>
                 <Col sm={12}>
-                    <Field
-                        name={`${question}parent`}
-                        component={FieldSelectMultiple}
-                        label="Pregunta padre (depende de...)"
-                        options={possibleParentQuestions}
-                        placeholder="[No tiene]"
+                    <FieldArray
+                        name={`${question}parents`}
+                        question={row.questions[index]}
+                        parentQuestionOptions={possibleParentQuestions}
+                        component={ParentsEditor}
                     />
                 </Col>
-            </Row>
+            </Row>}
         </Panel>
     );
 };
 
 QuestionEditor.propTypes = {
-    questions: PropTypes.arrayOf(PropTypes.instanceOf(Question)),
+    questions: PropTypes.arrayOf(PropTypes.instanceOf(Question)).isRequired,
     question: PropTypes.string.isRequired,
-    index: PropTypes.number.isRequired
+    index: PropTypes.number.isRequired,
+    onRemove: PropTypes.func.isRequired,
+    row: PropTypes.shape({}).isRequired
 };
 
 export default QuestionEditor;
