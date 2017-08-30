@@ -8,9 +8,9 @@ import {filter, keys} from 'lodash';
 import {Question} from '../model';
 import {types} from '../constants';
 import FieldInput from './FieldInput';
-import FieldSelectMultiple from './FieldSelectMultiple';
 import OptionsEditor from './OptionsEditor';
 import OptionsYesNo from './OptionsYesNo';
+import ParentsEditor from './ParentsEditor';
 
 const isOptionsRequired = (field, question) => {
     switch (question.type) {
@@ -82,17 +82,16 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
                 </Col>
             </Row>
             {isOptionsRequired(question, row.questions[index])}
-            <Row>
+            {!!possibleParentQuestions.length && <Row>
                 <Col sm={12}>
-                    <Field
-                        name={`${question}parent`}
-                        component={FieldSelectMultiple}
-                        label="Pregunta padre (depende de...)"
-                        options={possibleParentQuestions}
-                        placeholder="[No tiene]"
+                    <FieldArray
+                        name={`${question}parents`}
+                        question={row.questions[index]}
+                        parentQuestionOptions={possibleParentQuestions}
+                        component={ParentsEditor}
                     />
                 </Col>
-            </Row>
+            </Row>}
         </Panel>
     );
 };
