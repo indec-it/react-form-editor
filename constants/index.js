@@ -27,8 +27,12 @@ export const types = {
 };
 
 export const operators = [
-    {value: 'gt', label: 'mayor que', valueRequired: true},
-    {value: 'lt', label: 'menor que', valueRequired: true},
     {value: 'eq', label: 'igual a', valueRequired: true},
-    {value: 'exists', label: 'fue respondida'}
+    {value: 'ne', label: 'distinto de', valueRequired: true},
+    {value: 'gt', label: 'mayor a', valueRequired: true},
+    {value: 'gte', label: 'mayor o igual a', valueRequired: true},
+    {value: 'lt', label: 'menor a', valueRequired: true},
+    {value: 'lte', label: 'menor o igual a', valueRequired: true},
+    {value: 'eq', label: 'igual a', valueRequired: true},
+    {value: 'exists', label: 'fue respondida', valueRequired: false}
 ];

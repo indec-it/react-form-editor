@@ -3,9 +3,18 @@ import PropTypes from 'prop-types';
 import {Field} from 'redux-form';
 import {Button} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import {find} from 'lodash';
 
 import {operators} from '../constants';
 import FieldInput from './FieldInput';
+
+const isValueRequired = condition => {
+    if (!condition) {
+        return false;
+    }
+    const operator = find(operators, op => op.value === condition);
+    return !!operator && operator.valueRequired;
+};
 
 const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove}) => (
     <tr>
@@ -29,6 +38,7 @@ const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove})
                 component={FieldInput}
                 componentClass="select"
             >
+                <option/>
                 {operators.map(operator => (
                     <option key={operator.value} value={operator.value}>
                         {operator.label}
@@ -37,7 +47,7 @@ const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove})
             </Field>
         </td>
         <td>
-            {parent.operator && parent.operator.valueRequired && <Field
+            {isValueRequired(parent.condition) && <Field
                 name={`${parentQuestion}value`}
                 component={FieldInput}
                 type="number"
