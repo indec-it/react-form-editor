@@ -42,10 +42,7 @@ const SectionEditor = ({handleSubmit}) => (
                     />
                 </Col>
             </Row>
-
             <FieldArray name="rows" component={RowsEditor}/>
-
-
             <Row>
                 <Col sm={12} className="text-right">
                     <Button type="submit" bsStyle="primary">
@@ -53,17 +50,6 @@ const SectionEditor = ({handleSubmit}) => (
                     </Button>
                 </Col>
             </Row>
-
-            {/*
-            <Row>
-                <Col sm={12} className="text-right">
-                    <Button type="submit" bsStyle="primary">
-                        <FontAwesome name="cloud-download"/> Descargar sección
-                    </Button>
-                </Col>
-            </Row>
-            */}
-
         </form>
     </Grid>
 );

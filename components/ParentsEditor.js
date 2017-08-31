@@ -17,9 +17,9 @@ const ParentsEditor = ({fields, question, parentQuestionOptions}) => (
                 <Table responsive striped bordered>
                     <thead>
                         <tr>
-                            <th style={{width: '30%'}}>Pregunta</th>
-                            <th>Condición</th>
-                            <th>Valor</th>
+                            <th style={{width: '40%'}}>Pregunta</th>
+                            <th style={{width: '30%'}}>Condición</th>
+                            <th style={{width: '30%'}}>Valor</th>
                             <th style={{width: '35px'}}/>
                         </tr>
                     </thead>

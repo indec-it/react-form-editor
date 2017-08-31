@@ -17,7 +17,7 @@ const HomePage = () => (
         <main>
             <style jsx>{`
                 h1 {
-                color: red;
+                    color: red;
                 }
             `}</style>
             <SectionEditor/>
