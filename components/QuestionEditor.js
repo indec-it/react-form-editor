@@ -61,7 +61,7 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
                 </Col>
                 <Col sm={12}>
                     <Field
-                        name={`${question}label`}
+                        name={`${question}text`}
                         component={FieldInput}
                         label="Texto de pregunta"
                     />
