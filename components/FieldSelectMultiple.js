@@ -4,8 +4,8 @@ import {map} from 'lodash';
 import {ControlLabel, FormGroup} from 'react-bootstrap';
 import SelectMultiple from 'react-select';
 
-// value es el order de cada posible parent question
-const getOptions = possibleParentQuestions => map(possibleParentQuestions, ppq => ({value: ppq.order, label: ppq.name})
+// value es el id de cada posible parent question
+const getOptions = possibleParentQuestions => map(possibleParentQuestions, ppq => ({value: ppq.id, label: ppq.name})
 );
 
 const FieldSelectMultiple = ({input, label, placeholder, options}) => (

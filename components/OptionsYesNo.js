@@ -30,7 +30,7 @@ const OptionsYesNo = ({fields}) => (
                     <tbody>
                         {fields.map((option, index) => (
                             <OptionYesNo
-                                key={option.order}
+                                key={option.id}
                                 option={option}
                                 onRemove={() => fields.remove(index)}
                             />

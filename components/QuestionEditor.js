@@ -37,7 +37,7 @@ const isOptionsRequired = (field, question) => {
 
 const QuestionEditor = ({questions, question, row, index, onRemove}) => {
     const possibleParentQuestions = filter(
-        questions, q => q.rowOrder < row.order || (q.rowOrder === row.order && q.order < row.questions[index].order)
+        questions, q => q.rowOrder < row.id || (q.rowOrder === row.id && q.id < row.questions[index].id)
     );
     return (
         <Panel
@@ -61,7 +61,7 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
                 </Col>
                 <Col sm={12}>
                     <Field
-                        name={`${question}label`}
+                        name={`${question}text`}
                         component={FieldInput}
                         label="Texto de pregunta"
                     />

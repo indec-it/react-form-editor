@@ -9,7 +9,7 @@ import {max} from 'lodash';
 import {Row as FormRow} from '../model';
 import RowEditor from './RowEditor';
 
-const getNewRow = rows => new FormRow({order: max(rows.map(row => row.order)) + 1});
+const getNewRow = rows => new FormRow({id: max(rows.map(row => row.id)) + 1});
 
 const RowsEditor = ({fields, rows}) => (
     <div>
@@ -22,7 +22,7 @@ const RowsEditor = ({fields, rows}) => (
             <Col sm={12}>
                 {fields.map((row, index) => (
                     <RowEditor
-                        key={row.order}
+                        key={row.id}
                         row={row}
                         index={index}
                         onRemove={() => fields.remove(index)}
