@@ -35,7 +35,7 @@ const SectionEditor = ({handleSubmit}) => (
                         inputType="text"
                     />
                     <Field
-                        name="label"
+                        name="text"
                         component={FieldInput}
                         label="Título en pantalla"
                         inputType="text"

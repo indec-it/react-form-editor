@@ -5,6 +5,10 @@ import FontAwesome from 'react-fontawesome';
 
 import OptionYesNo from './OptionYesNo';
 
+const createNewOption = () => ({
+    trueValue: true,
+    falseValue: false
+});
 
 const OptionsYesNo = ({fields}) => (
     <div>
@@ -41,7 +45,7 @@ const OptionsYesNo = ({fields}) => (
         </Row>
         <Row>
             <Col sm={12} className="text-right">
-                <Button onClick={() => fields.push({})} bsStyle="default">
+                <Button onClick={() => fields.push(createNewOption())} bsStyle="default">
                     <FontAwesome name="plus"/> Agregar opción
                 </Button>
             </Col>

@@ -4,8 +4,8 @@ import {map} from 'lodash';
 import {ControlLabel, FormGroup} from 'react-bootstrap';
 import SelectMultiple from 'react-select';
 
-// value es el id de cada posible parent question
-const getOptions = possibleParentQuestions => map(possibleParentQuestions, ppq => ({value: ppq.id, label: ppq.name})
+// value es el order de cada posible parent question
+const getOptions = possibleParentQuestions => map(possibleParentQuestions, ppq => ({value: ppq.order, text: ppq.name})
 );
 
 const FieldSelectMultiple = ({input, label, placeholder, options}) => (
@@ -23,7 +23,7 @@ const FieldSelectMultiple = ({input, label, placeholder, options}) => (
 
 FieldSelectMultiple.propTypes = {
     input: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
     placeholder: PropTypes.shape({}),
     options: PropTypes.shape({}).isRequired
 };

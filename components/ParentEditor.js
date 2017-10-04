@@ -8,11 +8,11 @@ import {find} from 'lodash';
 import {operators} from '../constants';
 import FieldInput from './FieldInput';
 
-const isValueRequired = condition => {
-    if (!condition) {
+const isValueRequired = type => {
+    if (!type) {
         return false;
     }
-    const operator = find(operators, op => op.value === condition);
+    const operator = find(operators, op => op.value === type);
     return !!operator && operator.valueRequired;
 };
 
@@ -20,7 +20,7 @@ const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove})
     <tr>
         <td>
             <Field
-                name={`${parentQuestion}question`}
+                name={`${parentQuestion}id`}
                 component={FieldInput}
                 componentClass="select"
             >
@@ -34,7 +34,7 @@ const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove})
         </td>
         <td>
             <Field
-                name={`${parentQuestion}condition`}
+                name={`${parentQuestion}type`}
                 component={FieldInput}
                 componentClass="select"
             >
@@ -47,7 +47,7 @@ const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove})
             </Field>
         </td>
         <td>
-            {isValueRequired(parent.condition) && <Field
+            {isValueRequired(parent.type) && <Field
                 name={`${parentQuestion}value`}
                 component={FieldInput}
                 type="number"

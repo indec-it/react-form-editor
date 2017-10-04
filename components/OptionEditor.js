@@ -17,7 +17,7 @@ const OptionEditor = ({option, onRemove}) => (
         </td>
         <td>
             <Field
-                name={`${option}label`}
+                name={`${option}text`}
                 component={FieldInput}
                 inputType="text"
             />

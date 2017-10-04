@@ -23,16 +23,15 @@ export const types = {
     TEXT_AREA: 'textarea',
     TITLE: 'title',
     YEAR: 'Year',
-    YES_NO: 'YesNoQuestion'
+    YES_NO: 'YES_NO'
 };
 
 export const operators = [
-    {value: 'eq', label: 'igual a', valueRequired: true},
-    {value: 'ne', label: 'distinto de', valueRequired: true},
-    {value: 'gt', label: 'mayor a', valueRequired: true},
-    {value: 'gte', label: 'mayor o igual a', valueRequired: true},
-    {value: 'lt', label: 'menor a', valueRequired: true},
-    {value: 'lte', label: 'menor o igual a', valueRequired: true},
-    {value: 'eq', label: 'igual a', valueRequired: true},
-    {value: 'exists', label: 'fue respondida', valueRequired: false}
+    {value: 'operator.EQUALS', label: 'igual a', valueRequired: true},
+    {value: 'operator.NOT_EQUALS', label: 'distinto de', valueRequired: true},
+    {value: 'operator.GREATER_THAN', label: 'mayor a', valueRequired: true},
+    {value: 'operator.GREATER_OR_EQUAL_THAN', label: 'mayor o igual a', valueRequired: true},
+    {value: 'operator.LESS_THAN', label: 'menor a', valueRequired: true},
+    {value: 'operator.LESS_OR_EQUAL_THAN', label: 'menor o igual a', valueRequired: true},
+    {value: 'operator.EXISTS', label: 'fue respondida', valueRequired: false}
 ];

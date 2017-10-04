@@ -25,7 +25,7 @@ FieldInput.propTypes = {
         value: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
         onChange: PropTypes.func.isRequired
     }).isRequired,
-    label: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
     componentClass: PropTypes.string,
     type: PropTypes.string,
     placeholder: PropTypes.string,
