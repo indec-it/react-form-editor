@@ -19,11 +19,11 @@ const FieldSelectMultiple = ({input, label, placeholder, options}) => (
             options={getOptions(options) || ''}
         />
     </FormGroup>
-    );
+);
 
 FieldSelectMultiple.propTypes = {
     input: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
     placeholder: PropTypes.shape({}),
     options: PropTypes.shape({}).isRequired
 };

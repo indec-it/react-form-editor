@@ -5,21 +5,19 @@ import {Button} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import FieldInput from './FieldInput';
 
-
 const OptionEditor = ({option, onRemove}) => (
     <tr>
         <td>
             <Field
                 name={`${option}value`}
                 component={FieldInput}
-                inputType="number"
+                type="number"
             />
         </td>
         <td>
             <Field
                 name={`${option}text`}
                 component={FieldInput}
-                inputType="text"
             />
         </td>
         <td>

@@ -12,42 +12,39 @@ const OptionYesNo = ({option, onRemove}) => (
             <Field
                 name={`${option}name`}
                 component={FieldInput}
-                inputType="number"
             />
         </td>
         <td>
             <Field
                 name={`${option}text`}
                 component={FieldInput}
-                inputType="text"
-            />
-        </td>
-        <td>
-            <Field
-                name={`${option}dkLabel`}
-                component={FieldInput}
-                inputType="text"
-            />
-        </td>
-        <td>
-            <Field
-                name={`${option}dkValue`}
-                component={FieldInput}
-                inputType="text"
-            />
-        </td>
-        <td>
-            <Field
-                name={`${option}falseValue`}
-                component={FieldInput}
-                inputType="text"
             />
         </td>
         <td>
             <Field
                 name={`${option}trueValue`}
                 component={FieldInput}
-                inputType="text"
+                type="number"
+            />
+        </td>
+        <td>
+            <Field
+                name={`${option}falseValue`}
+                component={FieldInput}
+                type="number"
+            />
+        </td>
+        <td>
+            <Field
+                name={`${option}dkLabel`}
+                component={FieldInput}
+            />
+        </td>
+        <td>
+            <Field
+                name={`${option}dkValue`}
+                component={FieldInput}
+                type="number"
             />
         </td>
         <td>

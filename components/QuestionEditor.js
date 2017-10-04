@@ -34,23 +34,21 @@ const isOptionsRequired = (field, question) => {
     }
 };
 
+const getPanelHeader = (index, onRemove) => (
+    <div>
+        Pregunta {index + 1}
+        <span className="pull-right">
+            <FontAwesome onClick={onRemove} name="trash" role="button"/>
+        </span>
+    </div>
+);
 
 const QuestionEditor = ({questions, question, row, index, onRemove}) => {
     const possibleParentQuestions = filter(
         questions, q => q.rowOrder < row.id || (q.rowOrder === row.id && q.id < row.questions[index].id)
     );
     return (
-        <Panel
-            header={
-                <div>
-                    Pregunta {index + 1}
-                    <span className="pull-right">
-                        <FontAwesome onClick={onRemove} name="trash" role="button"/>
-                    </span>
-                </div>
-            }
-            bsStyle="default"
-        >
+        <Panel header={getPanelHeader(index, onRemove)} bsStyle="default">
             <Row>
                 <Col sm={12}>
                     <Field
@@ -70,7 +68,6 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
                         component={FieldInput}
                         label="Tipo"
                         componentClass="select"
-
                     >
                         <option/>
                         {keys(types).map(type => (

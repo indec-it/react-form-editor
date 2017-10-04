@@ -6,8 +6,8 @@ import FontAwesome from 'react-fontawesome';
 import OptionYesNo from './OptionYesNo';
 
 const createNewOption = () => ({
-    trueValue: true,
-    falseValue: false
+    trueValue: 1,
+    falseValue: 2
 });
 
 const OptionsYesNo = ({fields}) => (
@@ -24,10 +24,10 @@ const OptionsYesNo = ({fields}) => (
                         <tr>
                             <th style={{width: '20%'}}>Nombre</th>
                             <th>Texto</th>
+                            <th>trueValue</th>
+                            <th>falseValue</th>
                             <th>dkLabel</th>
                             <th>dkValue</th>
-                            <th>falseValue</th>
-                            <th>trueValue</th>
                             <th style={{width: '35px'}}/>
                         </tr>
                     </thead>
