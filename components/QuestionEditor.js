@@ -9,8 +9,17 @@ import {Question} from '../model';
 import {types} from '../constants';
 import FieldInput from './FieldInput';
 import OptionsEditor from './OptionsEditor';
-import OptionsYesNo from './OptionsYesNo';
+import QuestionYesNo from './QuestionYesNo';
 import ParentsEditor from './ParentsEditor';
+
+const getAdditionalFields = (field, question) => {
+    switch (question.type) {
+        case types.YES_NO:
+            return (<QuestionYesNo field={field} question={question}/>);
+        default:
+            return null;
+    }
+};
 
 const isOptionsRequired = (field, question) => {
     switch (question.type) {
@@ -23,11 +32,6 @@ const isOptionsRequired = (field, question) => {
             return (<FieldArray
                 name={`${field}options`}
                 component={OptionsEditor}
-            />);
-        case types.YES_NO:
-            return (<FieldArray
-                name={`${field}optionsYesNo`}
-                component={OptionsYesNo}
             />);
         default:
             return null;
@@ -78,6 +82,7 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
                     </Field>
                 </Col>
             </Row>
+            {getAdditionalFields(question, row.questions[index])}
             {isOptionsRequired(question, row.questions[index])}
             {!!possibleParentQuestions.length && <Row>
                 <Col sm={12}>
