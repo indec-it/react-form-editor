@@ -11,8 +11,8 @@ import QuestionEditor from './QuestionEditor';
 
 
 const getNewQuestion = (questions, row) => new Question({
-    order: defaultTo(max(questions.map(question => question.order)), 0) + 1,
-    rowOrder: row.order
+    id: defaultTo(max(questions.map(question => question.id)), 0) + 1,
+    rowOrder: row.id
 });
 
 const QuestionsEditor = ({fields, row, questions}) => (
@@ -26,7 +26,7 @@ const QuestionsEditor = ({fields, row, questions}) => (
             <Col sm={12}>
                 {fields.map((question, index) => (
                     <QuestionEditor
-                        key={question.order}
+                        key={question.id}
                         question={question}
                         index={index}
                         row={row}

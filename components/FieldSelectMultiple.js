@@ -5,7 +5,7 @@ import {ControlLabel, FormGroup} from 'react-bootstrap';
 import SelectMultiple from 'react-select';
 
 // value es el order de cada posible parent question
-const getOptions = possibleParentQuestions => map(possibleParentQuestions, ppq => ({value: ppq.order, label: ppq.name})
+const getOptions = possibleParentQuestions => map(possibleParentQuestions, ppq => ({value: ppq.order, text: ppq.name})
 );
 
 const FieldSelectMultiple = ({input, label, placeholder, options}) => (
@@ -19,7 +19,7 @@ const FieldSelectMultiple = ({input, label, placeholder, options}) => (
             options={getOptions(options) || ''}
         />
     </FormGroup>
-    );
+);
 
 FieldSelectMultiple.propTypes = {
     input: PropTypes.string.isRequired,

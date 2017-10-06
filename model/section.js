@@ -5,7 +5,7 @@ export default class Section {
     constructor(obj) {
         Object.assign(this, obj);
         if (!this.rows || !size(this.rows)) {
-            this.rows = [new Row({order: 1})];
+            this.rows = [new Row({id: 1})];
         }
     }
 }

@@ -1,11 +1,12 @@
 /* global window */
 import {saveAs} from 'file-saver';
+import javascriptStringify from 'javascript-stringify';
 
 export default class DownloadService {
     static download(data, filename = 'section') {
         saveAs(
-            new window.Blob([JSON.stringify(data)], {type: 'application/json;charset=utf-8'}),
-            `${filename}.json`
+            new window.Blob([javascriptStringify(data)], {type: 'application/javascript;charset=utf-8'}),
+            `${filename}.js`
         );
     }
 }

@@ -25,7 +25,7 @@ const OptionsEditor = ({fields}) => (
                     <tbody>
                         {fields.map((option, index) => (
                             <OptionEditor
-                                key={option.order}
+                                key={option.id}
                                 option={option}
                                 onRemove={() => fields.remove(index)}
                             />

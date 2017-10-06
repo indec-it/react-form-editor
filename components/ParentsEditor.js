@@ -26,7 +26,7 @@ const ParentsEditor = ({fields, question, parentQuestionOptions}) => (
                     <tbody>
                         {fields.map((parentQuestion, index) => (
                             <ParentEditor
-                                key={parentQuestion.order}
+                                key={parentQuestion.id}
                                 parent={question.parents[index]}
                                 parentQuestion={parentQuestion}
                                 parentQuestionOptions={parentQuestionOptions}

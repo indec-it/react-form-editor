@@ -9,8 +9,17 @@ import {Question} from '../model';
 import {types} from '../constants';
 import FieldInput from './FieldInput';
 import OptionsEditor from './OptionsEditor';
-import OptionsYesNo from './OptionsYesNo';
+import QuestionYesNo from './QuestionYesNo';
 import ParentsEditor from './ParentsEditor';
+
+const getAdditionalFields = (field, question) => {
+    switch (question.type) {
+        case types.YES_NO:
+            return (<QuestionYesNo field={field} question={question}/>);
+        default:
+            return null;
+    }
+};
 
 const isOptionsRequired = (field, question) => {
     switch (question.type) {
@@ -24,33 +33,26 @@ const isOptionsRequired = (field, question) => {
                 name={`${field}options`}
                 component={OptionsEditor}
             />);
-        case types.YES_NO:
-            return (<FieldArray
-                name={`${field}optionsYesNo`}
-                component={OptionsYesNo}
-            />);
         default:
             return null;
     }
 };
 
+const getPanelHeader = (index, onRemove) => (
+    <div>
+        Pregunta {index + 1}
+        <span className="pull-right">
+            <FontAwesome onClick={onRemove} name="trash" role="button"/>
+        </span>
+    </div>
+);
 
 const QuestionEditor = ({questions, question, row, index, onRemove}) => {
     const possibleParentQuestions = filter(
-        questions, q => q.rowOrder < row.order || (q.rowOrder === row.order && q.order < row.questions[index].order)
+        questions, q => q.rowOrder < row.id || (q.rowOrder === row.id && q.id < row.questions[index].id)
     );
     return (
-        <Panel
-            header={
-                <div>
-                    Pregunta {index + 1}
-                    <span className="pull-right">
-                        <FontAwesome onClick={onRemove} name="trash" role="button"/>
-                    </span>
-                </div>
-            }
-            bsStyle="default"
-        >
+        <Panel header={getPanelHeader(index, onRemove)} bsStyle="default">
             <Row>
                 <Col sm={12}>
                     <Field
@@ -70,7 +72,6 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
                         component={FieldInput}
                         label="Tipo"
                         componentClass="select"
-
                     >
                         <option/>
                         {keys(types).map(type => (
@@ -81,6 +82,7 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
                     </Field>
                 </Col>
             </Row>
+            {getAdditionalFields(question, row.questions[index])}
             {isOptionsRequired(question, row.questions[index])}
             {!!possibleParentQuestions.length && <Row>
                 <Col sm={12}>
