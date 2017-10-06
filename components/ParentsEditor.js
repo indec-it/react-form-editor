@@ -6,7 +6,7 @@ import FontAwesome from 'react-fontawesome';
 import ParentEditor from './ParentEditor';
 
 const ParentsEditor = ({fields, question, parentQuestionOptions}) => (
-    <div>
+    <div className="parent-editor">
         <Row>
             <Col sm={12}>
                 <h4>Pregunta padre (depende de...)</h4>
@@ -39,7 +39,7 @@ const ParentsEditor = ({fields, question, parentQuestionOptions}) => (
         </Row>
         <Row>
             <Col sm={12} className="text-right">
-                <Button onClick={() => fields.push({})} bsStyle="default">
+                <Button className="add-parent-question" onClick={() => fields.push({})} bsStyle="default">
                     <FontAwesome name="plus"/> Agregar pregunta
                 </Button>
             </Col>

@@ -39,7 +39,7 @@ const isOptionsRequired = (field, question) => {
 };
 
 const getPanelHeader = (index, onRemove) => (
-    <div>
+    <div className={`fg-question-${index + 1}`}>
         Pregunta {index + 1}
         <span className="pull-right">
             <FontAwesome onClick={onRemove} name="trash" role="button"/>
@@ -54,19 +54,21 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
     return (
         <Panel header={getPanelHeader(index, onRemove)} bsStyle="default">
             <Row>
-                <Col sm={12}>
+                <Col sm={12} className="variable-name">
                     <Field
                         name={`${question}name`}
                         component={FieldInput}
                         label="Nombre de variable"
                     />
                 </Col>
-                <Col sm={12}>
+                <Col sm={12} className="question-text">
                     <Field
                         name={`${question}text`}
                         component={FieldInput}
                         label="Texto de pregunta"
                     />
+                </Col>
+                <Col sm={12} className="question-type">
                     <Field
                         name={`${question}type`}
                         component={FieldInput}

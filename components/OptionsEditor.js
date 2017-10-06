@@ -36,7 +36,7 @@ const OptionsEditor = ({fields}) => (
         </Row>
         <Row>
             <Col sm={12} className="text-right">
-                <Button onClick={() => fields.push({})} bsStyle="default">
+                <Button className="add-option" onClick={() => fields.push({})} bsStyle="default">
                     <FontAwesome name="plus"/> Agregar opción
                 </Button>
             </Col>
