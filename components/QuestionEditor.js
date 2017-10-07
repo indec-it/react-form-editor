@@ -39,7 +39,7 @@ const isOptionsRequired = (field, question) => {
 };
 
 const getPanelHeader = (index, onRemove) => (
-    <div className={`fg-question-${index + 1}`}>
+    <div className={`fg-question-${index + 1} question-title`}>
         Pregunta {index + 1}
         <span className="pull-right">
             <FontAwesome onClick={onRemove} name="trash" role="button"/>

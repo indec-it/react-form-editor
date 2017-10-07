@@ -6,7 +6,7 @@ import FontAwesome from 'react-fontawesome';
 import OptionEditor from './OptionEditor';
 
 const OptionsEditor = ({fields}) => (
-    <div>
+    <div className="question-options">
         <Row>
             <Col sm={12}>
                 <h4>Opciones</h4>
