@@ -11,7 +11,7 @@ import QuestionsEditor from './QuestionsEditor';
 const RowEditor = ({rows, row, index, onRemove}) => (
     <Panel
         header={
-            <div>
+            <div className={`ta-row-${index + 1} ta-row-title`}>
                 Fila {index + 1}
                 <span className="pull-right">
                     <FontAwesome onClick={onRemove} name="trash" role="button"/>

@@ -17,8 +17,8 @@ const isValueRequired = type => {
 };
 
 const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove}) => (
-    <tr>
-        <td>
+    <tr className="ta-parent-row">
+        <td className="ta-parent-question-select">
             <Field
                 name={`${parentQuestion}id`}
                 component={FieldInput}
@@ -32,7 +32,7 @@ const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove})
                 ))}
             </Field>
         </td>
-        <td>
+        <td className="ta-parent-question-condition">
             <Field
                 name={`${parentQuestion}type`}
                 component={FieldInput}
@@ -46,7 +46,7 @@ const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove})
                 ))}
             </Field>
         </td>
-        <td>
+        <td className="ta-parent-question-value">
             {isValueRequired(parent.type) && <Field
                 name={`${parentQuestion}value`}
                 component={FieldInput}

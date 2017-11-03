@@ -6,7 +6,7 @@ import FontAwesome from 'react-fontawesome';
 import OptionEditor from './OptionEditor';
 
 const OptionsEditor = ({fields}) => (
-    <div>
+    <div className="ta-question-options">
         <Row>
             <Col sm={12}>
                 <h4>Opciones</h4>
@@ -36,7 +36,7 @@ const OptionsEditor = ({fields}) => (
         </Row>
         <Row>
             <Col sm={12} className="text-right">
-                <Button onClick={() => fields.push({})} bsStyle="default">
+                <Button className="ta-add-option" onClick={() => fields.push({})} bsStyle="default">
                     <FontAwesome name="plus"/> Agregar opción
                 </Button>
             </Col>

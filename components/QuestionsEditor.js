@@ -40,7 +40,11 @@ const QuestionsEditor = ({fields, row, questions}) => (
         </Row>
         <Row>
             <Col sm={12}>
-                <Button onClick={() => fields.push(getNewQuestion(questions, row))} bsStyle="default">
+                <Button
+                    className="ta-add-question"
+                    onClick={() => fields.push(getNewQuestion(questions, row))}
+                    bsStyle="default"
+                >
                     <FontAwesome name="plus"/> Agregar pregunta
                 </Button>
             </Col>
