@@ -6,15 +6,15 @@ import FontAwesome from 'react-fontawesome';
 import FieldInput from './FieldInput';
 
 const OptionEditor = ({option, onRemove}) => (
-    <tr className="option-row">
-        <td className="option-value">
+    <tr className="ta-option-row">
+        <td className="ta-option-value">
             <Field
                 name={`${option}value`}
                 component={FieldInput}
                 type="number"
             />
         </td>
-        <td className="option-text">
+        <td className="ta-option-text">
             <Field
                 name={`${option}text`}
                 component={FieldInput}

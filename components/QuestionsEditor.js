@@ -41,7 +41,7 @@ const QuestionsEditor = ({fields, row, questions}) => (
         <Row>
             <Col sm={12}>
                 <Button
-                    className="add-question"
+                    className="ta-add-question"
                     onClick={() => fields.push(getNewQuestion(questions, row))}
                     bsStyle="default"
                 >

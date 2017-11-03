@@ -45,7 +45,7 @@ const SectionEditor = ({handleSubmit}) => (
             <FieldArray name="rows" component={RowsEditor}/>
             <Row>
                 <Col sm={12} className="text-right">
-                    <Button id="download" type="submit" bsStyle="primary">
+                    <Button id="ta-download" type="submit" bsStyle="primary">
                         <FontAwesome name="cloud-download"/> Descargar sección
                     </Button>
                 </Col>

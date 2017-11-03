@@ -6,9 +6,9 @@ import {Col, Row} from 'react-bootstrap';
 import FieldInput from './FieldInput';
 
 const QuestionYesNo = ({field}) => (
-    <div className="yes-no-question">
+    <div className="ta-yes-no-question">
         <Row>
-            <Col className="true-value" sm={4}>
+            <Col className="ta-true-value" sm={4}>
                 <Field
                     name={`${field}trueValue`}
                     component={FieldInput}
@@ -16,7 +16,7 @@ const QuestionYesNo = ({field}) => (
                     label="True value"
                 />
             </Col>
-            <Col className="false-value" sm={4}>
+            <Col className="ta-false-value" sm={4}>
                 <Field
                     name={`${field}falseValue`}
                     component={FieldInput}
@@ -26,14 +26,14 @@ const QuestionYesNo = ({field}) => (
             </Col>
         </Row>
         <Row>
-            <Col className="text-wont-answer" sm={4}>
+            <Col className="ta-text-wont-answer" sm={4}>
                 <Field
                     name={`${field}dkLabel`}
                     component={FieldInput}
                     label="Texto 'No sabe/No contesta'"
                 />
             </Col>
-            <Col className="value-wont-answer" sm={4}>
+            <Col className="ta-value-wont-answer" sm={4}>
                 <Field
                     name={`${field}dkValue`}
                     component={FieldInput}

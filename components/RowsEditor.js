@@ -32,7 +32,7 @@ const RowsEditor = ({fields, rows}) => (
         </Row>
         <Row>
             <Col sm={12}>
-                <Button id="add-row" onClick={() => fields.push(getNewRow(rows))} bsStyle="primary">
+                <Button id="ta-add-row" onClick={() => fields.push(getNewRow(rows))} bsStyle="primary">
                     <FontAwesome name="plus"/> Agregar Fila
                 </Button>
             </Col>
