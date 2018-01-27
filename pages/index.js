@@ -15,11 +15,9 @@ const store = createStore(
 const HomePage = () => (
     <Provider store={store}>
         <main>
-            <style jsx>{`
-                h1 {
-                    color: red;
-                }
-            `}</style>
+            <style jsx>
+                {'h1 {color: red;}'}
+            </style>
             <SectionEditor/>
         </main>
     </Provider>

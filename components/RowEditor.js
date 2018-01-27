@@ -8,7 +8,9 @@ import FontAwesome from 'react-fontawesome';
 import {Row as FormRow} from '../model';
 import QuestionsEditor from './QuestionsEditor';
 
-const RowEditor = ({rows, row, index, onRemove}) => (
+const RowEditor = ({
+    rows, row, index, onRemove
+}) => (
     <Panel
         header={
             <div className={`ta-row-${index + 1} ta-row-title`}>

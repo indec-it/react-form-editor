@@ -8,7 +8,9 @@ import SelectMultiple from 'react-select';
 const getOptions = possibleParentQuestions => map(possibleParentQuestions, ppq => ({value: ppq.order, text: ppq.name})
 );
 
-const FieldSelectMultiple = ({input, label, placeholder, options}) => (
+const FieldSelectMultiple = ({
+    input, label, placeholder, options
+}) => (
     <FormGroup controlId={input.name}>
         <ControlLabel>{label}</ControlLabel>
         <SelectMultiple

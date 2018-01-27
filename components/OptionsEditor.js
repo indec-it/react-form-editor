@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Row, Col, Button, Table} from 'react-bootstrap';
+import {Button, Col, Row, Table} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
 import OptionEditor from './OptionEditor';
@@ -29,7 +29,7 @@ const OptionsEditor = ({fields}) => (
                                 option={option}
                                 onRemove={() => fields.remove(index)}
                             />
-                    ))}
+                        ))}
                     </tbody>
                 </Table>
             </Col>

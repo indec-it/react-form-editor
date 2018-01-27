@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {ControlLabel, FormControl, FormGroup} from 'react-bootstrap';
 
-const FieldInput = ({input, label, componentClass, type, placeholder, children, min, max}) => (
+const FieldInput = ({
+    input, label, componentClass, type, placeholder, children, min, max
+}) => (
     <FormGroup controlId={input.name}>
         <ControlLabel>{label}</ControlLabel>
         <FormControl
@@ -30,8 +32,8 @@ FieldInput.propTypes = {
     type: PropTypes.string,
     placeholder: PropTypes.string,
     children: PropTypes.oneOfType([
-        React.PropTypes.arrayOf(React.PropTypes.node),
-        React.PropTypes.node
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
     ]),
     min: PropTypes.number,
     max: PropTypes.number

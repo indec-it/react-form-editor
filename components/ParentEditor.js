@@ -16,7 +16,9 @@ const isValueRequired = type => {
     return !!operator && operator.valueRequired;
 };
 
-const ParentEditor = ({parentQuestion, parentQuestionOptions, parent, onRemove}) => (
+const ParentEditor = ({
+    parentQuestion, parentQuestionOptions, parent, onRemove
+}) => (
     <tr className="ta-parent-row">
         <td className="ta-parent-question-select">
             <Field

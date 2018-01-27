@@ -47,7 +47,9 @@ const getPanelHeader = (index, onRemove) => (
     </div>
 );
 
-const QuestionEditor = ({questions, question, row, index, onRemove}) => {
+const QuestionEditor = ({
+    questions, question, row, index, onRemove
+}) => {
     const possibleParentQuestions = filter(
         questions, q => q.rowOrder < row.id || (q.rowOrder === row.id && q.id < row.questions[index].id)
     );
@@ -86,7 +88,8 @@ const QuestionEditor = ({questions, question, row, index, onRemove}) => {
             </Row>
             {getAdditionalFields(question, row.questions[index])}
             {isOptionsRequired(question, row.questions[index])}
-            {!!possibleParentQuestions.length && <Row>
+            {!!possibleParentQuestions.length &&
+            <Row>
                 <Col sm={12}>
                     <FieldArray
                         name={`${question}parents`}
